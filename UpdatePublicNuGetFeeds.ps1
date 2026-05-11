@@ -15,8 +15,8 @@ if ($runs) {
 }
 
 $artifacts = get-bcartifacturl -type sandbox -country w1 -select all
-$minimumVersion = [System.Version]"28.0.0.0"
-$maximumVersion = [System.Version]"28.1.0.0"
+$minimumVersion = [System.Version]"28.1.0.0"
+$maximumVersion = [System.Version]"28.2.0.0"
 $artifactVersions = @()
 $majorminors = $artifacts | ForEach-Object { [System.Version]$_.Split('/')[4] } | Where-Object { ($_ -ge $minimumVersion) -and ($_ -lt $maximumVersion) } | Group-Object { "$($_.Major).$($_.Minor)" }
 foreach($majorminor in $majorminors) {
