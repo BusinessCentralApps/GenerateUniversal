@@ -39,6 +39,7 @@ foreach($majorminor in $majorminors) {
     $artifactVersions | ForEach-Object {
         $artifactVersion = "$_"
         $feed, $packageId, $packageVersion = Find-BcNuGetPackage -nuGetServerUrl $nuGetServerUrl -nuGetToken $feedToken -packageName "Microsoft.BaseApplication$symbolsStr.437dbf0e-84ff-417a-965d-ed2bb9650972" -version $artifactVersion -select Exact
+        $packageId = $null
         if (!$packageId) {
             $runname = "$name-$artifactVersion"
             Write-Host -ForegroundColor Yellow "$runname"
